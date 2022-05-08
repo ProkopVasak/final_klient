@@ -10,7 +10,7 @@ def on_button_pressed_a():
     if enabled == 1:
         radio.send_value("vote", 1)
         basic.show_string("A")
-        basic.clear_screen()
+        
     
 input.on_button_pressed(Button.A, on_button_pressed_a)
 def on_button_pressed_b():
@@ -18,7 +18,7 @@ def on_button_pressed_b():
     if enabled == 1:
         radio.send_value("vote", 2)
         basic.show_string("B")
-        basic.clear_screen()
+        
     
 input.on_button_pressed(Button.B, on_button_pressed_b)
 def on_pin_pressed_p1():
@@ -26,7 +26,7 @@ def on_pin_pressed_p1():
     if enabled == 1:
         radio.send_value("vote", 3)
         basic.show_string("C")
-        basic.clear_screen()
+        
     
 input.on_pin_pressed(TouchPin.P1, on_pin_pressed_p1)
 def on_pin_pressed_p2():
@@ -34,7 +34,7 @@ def on_pin_pressed_p2():
     if enabled == 1:
         radio.send_value("vote", 4)
         basic.show_string("D")
-        basic.clear_screen()
+        
     
 input.on_pin_pressed(TouchPin.P2, on_pin_pressed_p2)
 
@@ -45,6 +45,7 @@ def on_received_value(name, value):
         
     if name == "enabled" and value == 0:
         enabled = 0
+        basic.clear_screen()
         
     if name == "ack" and value == control.device_serial_number():
         

@@ -9,7 +9,6 @@ input.onButtonPressed(Button.A, function on_button_pressed_a() {
     if (enabled == 1) {
         radio.sendValue("vote", 1)
         basic.showString("A")
-        basic.clearScreen()
     }
     
 })
@@ -18,7 +17,6 @@ input.onButtonPressed(Button.B, function on_button_pressed_b() {
     if (enabled == 1) {
         radio.sendValue("vote", 2)
         basic.showString("B")
-        basic.clearScreen()
     }
     
 })
@@ -27,7 +25,6 @@ input.onPinPressed(TouchPin.P1, function on_pin_pressed_p1() {
     if (enabled == 1) {
         radio.sendValue("vote", 3)
         basic.showString("C")
-        basic.clearScreen()
     }
     
 })
@@ -36,7 +33,6 @@ input.onPinPressed(TouchPin.P2, function on_pin_pressed_p2() {
     if (enabled == 1) {
         radio.sendValue("vote", 4)
         basic.showString("D")
-        basic.clearScreen()
     }
     
 })
@@ -48,6 +44,7 @@ radio.onReceivedValue(function on_received_value(name: string, value: number) {
     
     if (name == "enabled" && value == 0) {
         enabled = 0
+        basic.clearScreen()
     }
     
     if (name == "ack" && value == control.deviceSerialNumber()) {
